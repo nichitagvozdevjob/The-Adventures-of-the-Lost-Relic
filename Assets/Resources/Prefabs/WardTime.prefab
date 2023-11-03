@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3892267919802059256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.279
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.273
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.052
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.71597654
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.31413552
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6072035
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.14142273
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -218.431
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 94.778
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 166.793
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_Name
+      value: WardTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7011449093984623465}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4733216387891391938}
+  m_SourcePrefab: {fileID: 100100000, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+--- !u!1 &4234919516854711465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79b101cb9d1e3c44ebfbab817c6154ed, type: 3}
+  m_PrefabInstance: {fileID: 3892267919802059256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7011449093984623465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234919516854711465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43092342d3fb69a46ac84f8649d46e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mnameItem: Ward Time
+  id: 5
+  countItem: 0
+  isStackable: 0
+  descriptionItem: The relic "Ward of Time", Its primary ability is to rejuvenate
+    items or objects to their previous state, as well as to alter temporal timelines.
+  patIcon: Icon/WardTime
+  pathPrefab: Prefabs/WardTime
+--- !u!65 &4733216387891391938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234919516854711465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05896639, y: 0.09856133, z: 0.027303923}
+  m_Center: {x: -0.00085482496, y: 0.07908146, z: -0.0015792131}
