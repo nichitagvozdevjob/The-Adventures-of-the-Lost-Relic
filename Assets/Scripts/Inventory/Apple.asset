@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   itemName: Apple
-  maximumAmount: 5
+  maximumAmount: 10
   itemPrefab: {fileID: 8113854108538171186, guid: 9485d019adebc1e468a79dd51ab7559e, type: 3}
   icon: {fileID: 21300000, guid: 1bc4f9c836b05bd429c735de93432c7a, type: 3}
   itemType: 1
   itemDescription: 
-  healAmount: 10
+  healAmount: 0

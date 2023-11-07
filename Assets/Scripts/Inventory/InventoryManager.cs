@@ -1,6 +1,5 @@
-using System.Collections;
+using TMPro;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -9,25 +8,31 @@ public class InventoryManager : MonoBehaviour
     public Transform inventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
     public bool isOpened;
-    public float reachDistance = 45;
-
-    //public Camera mainCamera;
+    public float reachDistance = 55;
+    
     public Transform mTransform;
 
-    private void Start()
+
+    void Awake()
     {
-        //mainCamera = Camera.main;
+        inventory.SetActive(true);
+    }
+
+    void Start()
+    {
+
         inventory.SetActive(false);
         AddSlot();
         
     }
 
-    private void Update()
+    void Update()
     {
         isOpenedInventory();
+        Ray(); 
     }
 
-    private void AddSlot()
+    void AddSlot()
     {
         for (int i = 0; i < inventoryPanel.childCount; i++)
         {
@@ -38,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
     
-    private void isOpenedInventory()
+    void isOpenedInventory()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -54,46 +59,46 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Ray()
     {
         Ray ray = new Ray(mTransform.position, mTransform.forward);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, reachDistance))
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            Debug.DrawRay(ray.origin, ray.direction * reachDistance, Color.green);
-            if (hit.collider.gameObject.GetComponent<Item>() != null)
+        if(Input.GetKeyDown(KeyCode.E))
+        {    
+            if (Physics.Raycast(ray, out hit, reachDistance))
             {
-                AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>(). amount);
-                Destroy(hit.collider.gameObject);
+                if (hit.collider.gameObject.GetComponent<Item>() != null)
+                {
+                    AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
+                    Destroy(hit.collider.gameObject);
+                }
             }
-        }
-        else
-        {
-            Debug.DrawRay(ray.origin, ray.direction * reachDistance, Color.blue);
         }
     }
 
-    private void AddItem(ItemScriptableObject _item, int _amount)
+    void AddItem(ItemScriptableObject _item, int _amount)
     {
         foreach (InventorySlot slot in slots)
         {
             if (slot.item == _item)
             {
                 slot.amount += _amount;
+                slot.itemAmountText.text = slot.amount.ToString();
                 return;
             }
         }
 
         foreach (InventorySlot slot in slots)
         {
-            if (slot.isEmpty == false)
+            if (slot.isEmpty == true)
             {
                 slot.item = _item;
                 slot.amount = _amount;
                 slot.isEmpty = false;
                 slot.SetIcon(_item.icon);
+                slot.itemAmountText.text = _amount.ToString();
+                break;
             }
         }
     }

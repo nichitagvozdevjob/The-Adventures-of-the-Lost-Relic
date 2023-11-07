@@ -34,6 +34,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8990611314712525094}
+  - {fileID: 1677672204580428695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -140,7 +141,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   amount: 0
-  isEmpty: 0
+  isEmpty: 1
+  iconGO: {fileID: 0}
+  itemAmountText: {fileID: 0}
 --- !u!1 &2324951484172503042
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,8 +173,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1677672204580428695}
+  m_Children: []
   m_Father: {fileID: 1269342544485379412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -242,17 +244,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6923782844472871818}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -34.9}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0008951646, w: -0.99999964}
+  m_LocalPosition: {x: 0, y: 0, z: -34.9137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8990611314712525094}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.7, y: -63}
-  m_SizeDelta: {x: 56.5979, y: 52.4333}
+  m_Father: {fileID: 1269342544485379412}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.103}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7667663700245247710
 CanvasRenderer:
@@ -345,7 +347,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.00007629912, z: -0.22270203, w: -0.3665924}
+  m_margin: {x: 88.44818, y: -63.84674, z: -23.29155, w: 145.93079}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

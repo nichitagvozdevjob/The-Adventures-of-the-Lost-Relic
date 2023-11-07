@@ -1,8 +1,8 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
-using Image = UnityEngine.UI.Image;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -10,14 +10,13 @@ public class InventorySlot : MonoBehaviour
     public int amount;
     public bool isEmpty = true;
     public GameObject iconGO;
-    public TMP_Text itemAmount;
+    public TMP_Text itemAmountText;
 
-    private void Start()
+    private void Awake()
     {
         iconGO = transform.GetChild(0).gameObject;
-        itemAmount = transform.GetChild(1).GetComponent<TMP_Text>();
+        itemAmountText = transform.GetChild(1).GetComponent<TMP_Text>();
     }
-
     public void SetIcon(Sprite icon)
     {
         iconGO.GetComponent<Image>().color = new Color(1, 1, 1, 1);
