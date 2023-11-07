@@ -1088,7 +1088,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3275073986472477965}
-  - component: {fileID: -3833832071411876651}
   - component: {fileID: -4313567060791514338}
   m_Layer: 0
   m_Name: Bow
@@ -1105,9 +1104,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9113927248286025269}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22171593, y: 0.5847136, z: -0.71835816, w: -0.3048174}
-  m_LocalPosition: {x: 0.015, y: 0.076, z: -0.12}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 16, y: 16, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 804617265312860070}
@@ -1125,28 +1124,7 @@ Transform:
   - {fileID: 1903322799098189352}
   - {fileID: 7689896591639291709}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 135.17801, y: 107.891, z: -79.40698}
---- !u!114 &-3833832071411876651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9113927248286025269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43092342d3fb69a46ac84f8649d46e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mnameItem: Bow
-  id: 4
-  countItem: 0
-  isStackable: 0
-  descriptionItem: The bow is an indispensable tool that will become a reliable companion
-    for your hero in the quest for the lost artifact in the game "Adventures of the
-    Lost Relic."
-  patIcon: Icon/Bow
-  pathPrefab: Prefabs/Bow
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &-4313567060791514338
 BoxCollider:
   m_ObjectHideFlags: 0

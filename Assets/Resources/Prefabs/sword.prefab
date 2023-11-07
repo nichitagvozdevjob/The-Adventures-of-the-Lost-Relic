@@ -10,59 +10,59 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.25
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.25
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.2500014
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0635
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0424
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5800006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.40979975
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.389161
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.58670026
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 178.927
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 111.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 88.607
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_Name
-      value: Sword
+      value: sword
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       propertyPath: m_IsActive
@@ -74,9 +74,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1558535645169192521}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2661465084667280263}
   m_SourcePrefab: {fileID: 100100000, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
 --- !u!1 &8701065565092935975 stripped
@@ -84,27 +81,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6539a7284598192468a5050fd7a24a73, type: 3}
   m_PrefabInstance: {fileID: 8358976497086776438}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1558535645169192521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8701065565092935975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43092342d3fb69a46ac84f8649d46e36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mnameItem: Sword
-  id: 3
-  countItem: 0
-  isStackable: 0
-  descriptionItem: The sword is a mighty weapon and tool that will serve your hero
-    in their quest to find the lost artifact in the game "Adventures of the Lost
-    Relic."
-  patIcon: Icon/Sword
-  pathPrefab: Prefabs/Sword
 --- !u!65 &2661465084667280263
 BoxCollider:
   m_ObjectHideFlags: 0
