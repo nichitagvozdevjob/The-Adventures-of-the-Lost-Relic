@@ -1,10 +1,13 @@
 using TMPro;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject inventory;
+    public GameObject UIBG;
+    public GameObject crosshair;
     public Transform inventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
     public bool isOpened;
@@ -15,15 +18,15 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        inventory.SetActive(true);
+        UIBG.SetActive(true);
     }
 
     void Start()
     {
 
-        inventory.SetActive(false);
+        UIBG.SetActive(false);
         AddSlot();
-        
+        inventoryPanel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -50,11 +53,19 @@ public class InventoryManager : MonoBehaviour
             isOpened = !isOpened;
             if (isOpened)
             {
-                inventory.SetActive(true);
+                UIBG.SetActive(true);
+                inventoryPanel.gameObject.SetActive(true);
+                crosshair.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
-                inventory.SetActive(false);
+                UIBG.SetActive(false);
+                inventoryPanel.gameObject.SetActive(false);
+                crosshair.SetActive(true); 
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }
@@ -73,7 +84,12 @@ public class InventoryManager : MonoBehaviour
                     AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
                     Destroy(hit.collider.gameObject);
                 }
+                Debug.DrawRay(ray.origin, ray.direction*reachDistance, Color.green);
             }
+        }
+        else
+        {
+            Debug.DrawRay(ray.origin, ray.direction * reachDistance, Color.red);
         }
     }
 
@@ -83,9 +99,13 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.item == _item)
             {
-                slot.amount += _amount;
-                slot.itemAmountText.text = slot.amount.ToString();
-                return;
+                if (slot.amount + _amount <= _item.maximumAmount)
+                {
+                    slot.amount += _amount;
+                    slot.itemAmountText.text = slot.amount.ToString();
+                    return;
+                }
+                break;
             }
         }
 
