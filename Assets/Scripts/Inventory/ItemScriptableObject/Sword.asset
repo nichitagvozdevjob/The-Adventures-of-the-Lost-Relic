@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24b2010e795cd654986ed375876d65b6, type: 3}
-  m_Name: Apple
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  itemName: Apple
-  maximumAmount: 2
-  itemPrefab: {fileID: 8113854108538171186, guid: 9485d019adebc1e468a79dd51ab7559e, type: 3}
-  icon: {fileID: 21300000, guid: 1bc4f9c836b05bd429c735de93432c7a, type: 3}
-  itemType: 1
+  itemName: Sword
+  maximumAmount: 1
+  itemPrefab: {fileID: 8701065565092935975, guid: 531907658d172454fb71221bf4a7fd88, type: 3}
+  icon: {fileID: 21300000, guid: ed8e26446af7c53408a17f1a653cbafb, type: 3}
+  itemType: 2
   itemDescription: 
-  isConsumeable: 1
-  changeHealth: 10
+  isConsumeable: 0
+  inHandName: Stone Sword
+  changeHealth: 0
   healAmount: 0

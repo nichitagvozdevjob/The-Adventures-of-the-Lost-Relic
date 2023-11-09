@@ -1,4 +1,7 @@
-﻿ using UnityEngine;
+﻿ using System;
+ using System.Collections;
+ using UnityEngine;
+ using Random = UnityEngine.Random;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -14,18 +17,13 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        [Header("Player")]
-        [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
-
-        [Tooltip("Sprint speed of the character in m/s")]
+        
         public float SprintSpeed = 5.335f;
 
-        [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
-
-        [Tooltip("Acceleration and deceleration")]
+        
         public float SpeedChangeRate = 10.0f;
 
         public AudioClip LandingAudioClip;
@@ -33,69 +31,50 @@ namespace StarterAssets
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
         [Space(10)]
-        [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
-
-        [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
+        
         public float Gravity = -15.0f;
 
         [Space(10)]
-        [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
-
-        [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
+        
         public float FallTimeout = 0.15f;
-
-        [Header("Player Grounded")]
-        [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
+        
         public bool Grounded = true;
-
-        [Tooltip("Useful for rough ground")]
+        
         public float GroundedOffset = -0.14f;
-
-        [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
+        
         public float GroundedRadius = 0.28f;
-
-        [Tooltip("What layers the character uses as ground")]
+        
         public LayerMask GroundLayers;
-
-        [Header("Cinemachine")]
-        [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
+        
         public GameObject CinemachineCameraTarget;
-
-        [Tooltip("How far in degrees can you move the camera up")]
+        
         public float TopClamp = 70.0f;
-
-        [Tooltip("How far in degrees can you move the camera down")]
+        
         public float BottomClamp = -30.0f;
-
-        [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
+        
         public float CameraAngleOverride = 0.0f;
 
-        [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
-
-        // cinemachine
+        
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
-
-        // player
+        
         private float _speed;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-
-        // timeout deltatime
+        
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
-
-        // animation IDs
+        
         private int _animIDSpeed;
         private int _animIDGrounded;
         private int _animIDJump;
-        private int _animIDFreeFall;
+        //private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
 #if ENABLE_INPUT_SYSTEM 
@@ -121,6 +100,8 @@ namespace StarterAssets
 #endif
             }
         }
+        
+        private Coroutine moveCoroutine;
 
 
         private void Awake()
@@ -152,15 +133,40 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
-        private void Update()
+        public void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
             GroundedCheck();
             Move();
-        }
 
+            if (_animator.GetBool("AtackSword") == true)
+            {
+               
+            }
+            
+            if (_animator.GetBool("AtackSword"))
+            {
+                StartCoroutine(StopForAttack());
+            }
+        }
+        
+        private IEnumerator StopForAttack()
+        {
+            MoveSpeed = 0f;
+            SprintSpeed = 0f;
+            JumpHeight = 0f;
+            Gravity = 0f;
+            
+            yield return new WaitForSeconds(1.3f);
+            
+            MoveSpeed = 25f;
+            SprintSpeed = 42.68f;
+            JumpHeight = 9.6f;
+            Gravity = -100f;
+        }
+        
         private void LateUpdate()
         {
             CameraRotation();
@@ -171,7 +177,7 @@ namespace StarterAssets
             _animIDSpeed = Animator.StringToHash("Speed");
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDJump = Animator.StringToHash("Jump");
-            _animIDFreeFall = Animator.StringToHash("FreeFall");
+            //_animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 
@@ -211,8 +217,9 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
-        private void Move()
+        public void Move()
         {
+               
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -278,7 +285,6 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
         }
-
         private void JumpAndGravity()
         {
             if (Grounded)
@@ -290,7 +296,7 @@ namespace StarterAssets
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
+                    //_animator.SetBool(_animIDFreeFall, false);
                 }
 
                 // stop our velocity dropping infinitely when grounded
@@ -333,7 +339,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDFreeFall, true);
+                        //_animator.SetBool(_animIDFreeFall, true);
                     }
                 }
 
@@ -362,8 +368,7 @@ namespace StarterAssets
 
             if (Grounded) Gizmos.color = transparentGreen;
             else Gizmos.color = transparentRed;
-
-            // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+            
             Gizmos.DrawSphere(
                 new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
                 GroundedRadius);

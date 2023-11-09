@@ -36,7 +36,6 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         // Делаем так чтобы нажатия мышкой не игнорировали эту картинку
         GetComponentInChildren<Image>().raycastTarget = false;
         // Делаем наш DraggableObject ребенком InventoryPanel чтобы DraggableObject был над другими слотами инвенторя
-        transform.SetParent(transform.parent.parent);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -110,7 +109,7 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         oldSlot.amount = amount;
         if (isEmpty == false)
         {
-            oldSlot.SetIcon(iconGO.GetComponent<Image>().sprite);
+            oldSlot.SetIcon(item.icon);
             oldSlot.itemAmountText.text = amount.ToString();
         }
         else

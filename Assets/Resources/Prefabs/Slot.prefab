@@ -354,3 +354,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oldSlot: {fileID: 0}
+  dragAndDropItemSlot: {fileID: 5533435322541655639, guid: 6756a3a7967b9344a9f20dbc32906037, type: 3}

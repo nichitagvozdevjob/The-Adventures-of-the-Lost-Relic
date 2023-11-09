@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b2010e795cd654986ed375876d65b6, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: 
+  itemName: Bow
+  maximumAmount: 1
+  itemPrefab: {fileID: 9113927248286025269, guid: b06af63928d54b24e98e158897e0f695, type: 3}
+  icon: {fileID: 21300000, guid: bcc74e6393b7b0647ab9d8a6c3708d14, type: 3}
+  itemType: 2
+  itemDescription: 
+  isConsumeable: 0
+  inHandName: Stone Bow
+  changeHealth: 0
+  healAmount: 0

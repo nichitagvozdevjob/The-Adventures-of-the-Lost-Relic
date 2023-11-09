@@ -14,6 +14,7 @@ public class ItemScriptableObject : ScriptableObject
     public ItemType itemType;
     public string itemDescription;
     public bool isConsumeable;
+    public string inHandName;
     
     
     public int changeHealth;
