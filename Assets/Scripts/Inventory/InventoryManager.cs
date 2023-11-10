@@ -1,14 +1,12 @@
-using TMPro;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class InventoryManager : MonoBehaviour
 {
     public GameObject UIBG;
     public GameObject crosshair;
     public Transform inventoryPanel;
+    public Transform quickslotPanet;
     public List<InventorySlot> slots = new List<InventorySlot>();
     public bool isOpened;
     public float reachDistance = 55;
@@ -42,6 +40,14 @@ public class InventoryManager : MonoBehaviour
             if (inventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null)
             {
                 slots.Add(inventoryPanel.GetChild(i).GetComponent<InventorySlot>());
+            }
+        }
+        
+        for (int i = 0; i < quickslotPanet.childCount; i++)
+        {
+            if (quickslotPanet.GetChild(i).GetComponent<InventorySlot>() != null)
+            {
+                slots.Add(quickslotPanet.GetChild(i).GetComponent<InventorySlot>());
             }
         }
     }
@@ -81,7 +87,9 @@ public class InventoryManager : MonoBehaviour
             {
                 if (hit.collider.gameObject.GetComponent<Item>() != null)
                 {
+                    
                     AddItem(hit.collider.gameObject.GetComponent<Item>().item, hit.collider.gameObject.GetComponent<Item>().amount);
+                    
                     Destroy(hit.collider.gameObject);
                 }
                 Debug.DrawRay(ray.origin, ray.direction*reachDistance, Color.green);

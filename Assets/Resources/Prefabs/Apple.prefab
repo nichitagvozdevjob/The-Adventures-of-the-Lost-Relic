@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8922163016866379144}
   - component: {fileID: 5511905027343366701}
   - component: {fileID: 7753737456300412647}
-  - component: {fileID: 5131921457613324181}
   - component: {fileID: 7195306785097892667}
   - component: {fileID: 6272468984906523339}
+  - component: {fileID: -8612138916167524408}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -86,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5131921457613324181
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8113854108538171186}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5246892
-  m_Center: {x: -0.007719338, y: 0.05978328, z: 3.9557455e-16}
 --- !u!54 &7195306785097892667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &6272468984906523339
 MonoBehaviour:
@@ -148,3 +127,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: e660a2df618996d42a19faa3ad48d19f, type: 2}
   amount: 1
+--- !u!65 &-8612138916167524408
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113854108538171186}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.79886174, y: 0.91116655, z: 0.79886174}
+  m_Center: {x: 0, y: 0.078135684, z: 0}

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum ItemType {Default,Food,Weapon,Instrument}
 public class ItemScriptableObject : ScriptableObject
@@ -18,6 +15,4 @@ public class ItemScriptableObject : ScriptableObject
     
     
     public int changeHealth;
-    
-    
 }

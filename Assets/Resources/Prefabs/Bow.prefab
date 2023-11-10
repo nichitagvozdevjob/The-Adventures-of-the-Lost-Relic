@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 3275073986472477965}
   - component: {fileID: -4313567060791514338}
   - component: {fileID: 2709340221020708822}
+  - component: {fileID: 2253035126489434785}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -1161,6 +1162,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b513beb4d9d33264ead26c93393cf5c2, type: 2}
   amount: 1
+--- !u!54 &2253035126489434785
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113927248286025269}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9165268232573871861
 GameObject:
   m_ObjectHideFlags: 0

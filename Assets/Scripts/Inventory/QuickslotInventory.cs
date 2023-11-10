@@ -1,25 +1,24 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class QuickslotInventory : MonoBehaviour
 {
-    // Объект у которого дети являются слотами
+
     public Transform quickslotParent;
     public InventoryManager inventoryManager;
     public int currentQuickslotID = 0;
     public Sprite selectedSprite;
     public Sprite notSelectedSprite;
-    public TMP_Text healthText;
+    
     public Transform allItem;
     public InventorySlot activeSlot = null;
+    [FormerlySerializedAs("levelHealth")] public PlayerLevelHealth playerLevelHealth;
+    
 
-    // Update is called once per frame
     void Update()
     {
+        
         float mw = Input.GetAxis("Mouse ScrollWheel");
         // Используем колесико мышки
         if (mw > 0.1)
@@ -104,7 +103,7 @@ public class QuickslotInventory : MonoBehaviour
         }
 
         // Используем предмет по нажатию на левую кнопку мыши
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerLevelHealth._currentHealth < 100)
         {
             if (quickslotParent.GetChild(currentQuickslotID).GetComponent<InventorySlot>().item != null)
             {
@@ -112,8 +111,8 @@ public class QuickslotInventory : MonoBehaviour
                     !inventoryManager.isOpened &&
                     quickslotParent.GetChild(currentQuickslotID).GetComponent<Image>().sprite == selectedSprite)
                 {
-                    // Применяем изменения к здоровью (будущем к голоду и жажде) 
-                    ChangeCharacteristics();
+                    // Применяем изменения к здоровью
+                    UseConsumable();
 
                     if (quickslotParent.GetChild(currentQuickslotID).GetComponent<InventorySlot>().amount <= 1)
                     {
@@ -143,22 +142,10 @@ public class QuickslotInventory : MonoBehaviour
             HideItemsInHand();
         }
     }
-
-    private void ChangeCharacteristics()
+    public void UseConsumable()
     {
-        // Если здоровье + добавленное здоровье от предмета меньше или равно 100, то делаем вычисления... 
-        if (int.Parse(healthText.text) + quickslotParent.GetChild(currentQuickslotID).GetComponent<InventorySlot>().item
-                .changeHealth <= 100)
-        {
-            float newHealth = int.Parse(healthText.text) + quickslotParent.GetChild(currentQuickslotID)
-                .GetComponent<InventorySlot>().item.changeHealth;
-            healthText.text = newHealth.ToString();
-        }
-        // Иначе, просто ставим здоровье на 100
-        else
-        {
-            healthText.text = "100";
-        }
+            playerLevelHealth.HealthChanger(quickslotParent.GetChild(currentQuickslotID).GetComponent<InventorySlot>().item
+                .changeHealth);
     }
 
     private void ShowItemInHand()
