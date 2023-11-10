@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113854108538171186}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 356.99658, y: 11.591996, z: 700.8045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -105,8 +105,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.45558327
-  m_Center: {x: 0, y: 0.078135684, z: 0}
+  m_Radius: 0.5246892
+  m_Center: {x: -0.007719338, y: 0.05978328, z: 3.9557455e-16}
 --- !u!54 &7195306785097892667
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &6272468984906523339
 MonoBehaviour:

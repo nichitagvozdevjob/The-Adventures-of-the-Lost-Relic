@@ -11,9 +11,11 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 {
     public InventorySlot oldSlot;
     private Transform player;
+    private QuickslotInventory quickslotInventory;
 
     private void Start()
     {
+        quickslotInventory = FindObjectOfType<QuickslotInventory>();
         //ПОСТАВЬТЕ ТЭГ "PLAYER" НА ОБЪЕКТЕ ПЕРСОНАЖА!
         player = GameObject.FindGameObjectWithTag("Player").transform;
         // Находим скрипт InventorySlot в слоте в иерархии
@@ -51,7 +53,7 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         transform.SetParent(oldSlot.transform);
         transform.position = oldSlot.transform.position;
         //Если мышка отпущена над объектом по имени UIPanel, то...
-        if (eventData.pointerCurrentRaycast.gameObject.name == "UIPanel")
+        if (eventData.pointerCurrentRaycast.gameObject.name == "UIBG")
         {
             // Выброс объектов из инвентаря - Спавним префаб обекта перед персонажем
             GameObject itemObject = Instantiate(oldSlot.item.itemPrefab, player.position + Vector3.up + player.forward, Quaternion.identity);
@@ -59,11 +61,17 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             itemObject.GetComponent<Item>().amount = oldSlot.amount;
             // убираем значения InventorySlot
             NullifySlotData();
+            quickslotInventory.CheckItemInHand();
+        }
+        else if (eventData.pointerCurrentRaycast.gameObject.transform.parent.parent == null)
+        {
+            return;
         }
         else if(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>() != null)
         {
             //Перемещаем данные из одного слота в другой
             ExchangeSlotData(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>());
+            quickslotInventory.CheckItemInHand();
         }
        
     }
@@ -93,7 +101,14 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         if (oldSlot.isEmpty == false)
         {
             newSlot.SetIcon(oldSlot.iconGO.GetComponent<Image>().sprite);
-            newSlot.itemAmountText.text = oldSlot.amount.ToString();
+            if (oldSlot.item.maximumAmount != 1)
+            {
+                newSlot.itemAmountText.text = oldSlot.amount.ToString();
+            }
+            else
+            {
+                newSlot.itemAmountText.text = "";
+            }
         }
         else
         {
@@ -110,7 +125,14 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         if (isEmpty == false)
         {
             oldSlot.SetIcon(item.icon);
-            oldSlot.itemAmountText.text = amount.ToString();
+            if (item.maximumAmount != 1)
+            {
+                oldSlot.itemAmountText.text = amount.ToString();
+            }
+            else
+            {
+                oldSlot.itemAmountText.text = " ";
+            }
         }
         else
         {

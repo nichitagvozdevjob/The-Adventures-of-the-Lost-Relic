@@ -132,6 +132,18 @@ public class QuickslotInventory : MonoBehaviour
         }
     }
 
+    public void CheckItemInHand()
+    {
+        if (activeSlot != null)
+        {
+            ShowItemInHand();
+        }
+        else
+        {
+            HideItemsInHand();
+        }
+    }
+
     private void ChangeCharacteristics()
     {
         // Если здоровье + добавленное здоровье от предмета меньше или равно 100, то делаем вычисления... 

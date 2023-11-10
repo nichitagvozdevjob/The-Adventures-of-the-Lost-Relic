@@ -1089,6 +1089,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3275073986472477965}
   - component: {fileID: -4313567060791514338}
+  - component: {fileID: 2709340221020708822}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -1146,6 +1147,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18883836, y: 0.051974643, z: 0.2858586}
   m_Center: {x: -0.0023672208, y: -0.0002738741, z: -0.0039003494}
+--- !u!114 &2709340221020708822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113927248286025269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43092342d3fb69a46ac84f8649d46e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: b513beb4d9d33264ead26c93393cf5c2, type: 2}
+  amount: 1
 --- !u!1 &9165268232573871861
 GameObject:
   m_ObjectHideFlags: 0

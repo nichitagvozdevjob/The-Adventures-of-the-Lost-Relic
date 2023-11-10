@@ -117,7 +117,10 @@ public class InventoryManager : MonoBehaviour
                 slot.amount = _amount;
                 slot.isEmpty = false;
                 slot.SetIcon(_item.icon);
-                slot.itemAmountText.text = _amount.ToString();
+                if (slot.item.maximumAmount != 1)
+                {
+                    slot.itemAmountText.text = _amount.ToString();
+                }
                 break;
             }
         }
