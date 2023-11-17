@@ -1,6 +1,6 @@
-using System.Collections;
 using StarterAssets;
 using UnityEngine;
+using System.Collections;
 
 public class ActionsPlayer : MonoBehaviour
 {
@@ -26,21 +26,10 @@ public class ActionsPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && anim.GetBool("Jump") == false && canAttack)
         {
-            if (quickslotInventory.activeSlot != null)
+            if (quickslotInventory.activeSlot != null && quickslotInventory.activeSlot.item != null &&
+                quickslotInventory.activeSlot.item.itemType == ItemType.Weapon && !inventoryManager.isOpened)
             {
-                if (quickslotInventory.activeSlot.item != null)
-                {
-                    if (quickslotInventory.activeSlot.item.itemType == ItemType.Weapon)
-                    {
-                        if (inventoryManager.isOpened == false)
-                        {
-                            anim.SetBool("AtackSword", true);
-                            canAttack = false;
-                            StartCoroutine(EnableAttackAfterDelay(1.3f));
-                            _thirdPersonController.Update();
-                        }
-                    }
-                }
+                StartCoroutine(PerformAttack());
             }
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -49,9 +38,13 @@ public class ActionsPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator EnableAttackAfterDelay(float delay)
+    IEnumerator PerformAttack()
     {
-        yield return new WaitForSeconds(delay);
+        anim.SetBool("AtackSword", true);
+        canAttack = false;
+        yield return new WaitForSeconds(1.16f); // Устанавливаем время атаки в 1.16 секунды
+        anim.SetBool("AtackSword", false);
+        yield return new WaitForSeconds(0.14f); // Оставшиеся 0.14 секунды
         canAttack = true;
     }
 }
